@@ -1,5 +1,5 @@
 ---
-name: Choi MoonSeok
+name: MoonSeok Choi
 username: moonseoktech
 bio: "안녕하세요, 최문석입니다 그래픽프로그래머와 게임개발에 관심이 있습니다"
 site: "https://moonseokchoi-kr.github.io"
