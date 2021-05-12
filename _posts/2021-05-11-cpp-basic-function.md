@@ -93,3 +93,107 @@ usemathjax: true
             - 콘솔을통해 사용자의 입력을 받는 함수
             - 입력이 들어올 때까지 무한히 대기한다.
             - 입력을 받아 저장할 값의 참조를 넘겨줘야한다.
+    - 함수의 사용이유
+    - 재사용성 & 모듈화
+
+        ```cpp
+        //factorial logic 구현
+        	int i = 4;
+        	
+        	int answer = 1;
+        	for (int j=0; j<i-1; j++) 
+        	{
+        		answer *= (j+2);
+        	}
+
+        //반복문버전
+        int Factorial(int _iCount)
+        {
+        	int value = 1;
+        	for(int j=0; j<_iCount-1; ++i)
+        	{
+        		value *= (j+2)
+        	}
+        	return value;
+        }
+
+        //메인에서 사용
+        int main()
+        {
+        	//로직 호출
+        	int i = 4;
+        	
+        	int answer = 1;
+        	for (int j=0; j<i-1; j++) 
+        	{
+        		answer *= (j+2);
+        	}
+
+        	//함수호출
+        	Factorial(i);
+        }
+        ```
+
+        - 위와 같이 팩토리얼을 주먹구구식 으로 구성한거와, 함수형태로 구성한것을 보면 로직의 차이는 없으나 호출의 차이가 난다.
+        - 함수로 만들면 함수의 이름만 알면 어디서든 호출할 수 있지만, 로직은 매번 찾아서 복사 하고 붙여넣어야한다.
+        
+    - 가독성
+        - 모든걸 main안에 로직으로 작성한다면 코드가 매우 읽기 힘들다.
+        - 그렇기 때문에 함수로 모듈화를 진행해 나누어 찾아보기 쉽도록 만들어야 훨씬 코드의 가독성이 좋아진다.
+
+    - 재귀함수
+    - 반복문과 비슷한 역할을 하며, 함수내에서 자기자신을 호출하는 함수를 말한다.
+
+        ```cpp
+        //재귀 버전
+        int RecursiveFactorial(int _iCount) 
+        {
+        		if (_iCount == 1)
+        		{
+        			return 1;
+        		}
+        	
+        	return _iCount * RecursiveFactorial(_iCount - 1)
+        }
+
+        //Fibonacci
+
+        int Fibonacci(int _iCount)
+        {
+        	if (_iCount == 1 || _iCount == 2)
+        	{
+        		return 1;
+        	}
+        	int value = 0;
+        	int iPrev1 = 1;
+        	int iPrev2 = 1;
+        	for (int i = 2; i < _iCount; ++i)
+        	{
+        		value = iPrev1 + iPrev2;
+        		iPrev1 = iPrev2;
+        		iPrev2 = value;
+        	}
+
+        	return value;
+
+        }
+
+        //Recursion
+
+        int Fibonacci_Re(int _iCount)
+        {
+        	if (_iCount == 1 || _iCount == 2)
+        	{
+        		return 1;
+        	}
+
+        	return Fibonacci_Re(_iCount - 1) + Fibonacci_Re(_iCount - 2);
+        }
+        ```
+
+    - 가독성이 좋고, 구현이 용이하며 함수형프로그램에 사용하기 좋기 때문에 알아둬야한다.
+    - 함수 스택 하나를 변수로 생각하고 이용하는 방법으로 생각하면 편하다( 함수내에서 변수를 호출하듯이 사용)
+        - 함수는 스택메모리라는 곳에 저장하게 되고 호출할때마다 한칸의 스택메모리를 할당 받는다.
+        - 즉 이를 변수처럼 사용한다는건 스택메모리에 저장된 값만을 이용한다는 의미이다.
+    - 단점, 함수를 자꾸 호출하기 때문에 속도가 느리다.
+        - 현시대의 프로세서 들에대해서는 별 의미가 없다(성능이 너무 좋아졌기 때문에)

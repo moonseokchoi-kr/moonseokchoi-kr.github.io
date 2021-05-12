@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[C++] 변수와 자료형 정리"
-summary: "변수와 자료형에 대하여"
+title:  "[C++] 조건문과 연산자"
+summary: "조건문과 연산자에 대하여"
 author: moon
 date: '2021-05-06 12:35:23 +0900'
 category: cpp
