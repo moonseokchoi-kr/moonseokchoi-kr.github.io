@@ -7,7 +7,7 @@ date: '2021-05-06 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, basic, operator, statement
-permalink: /blog/cpp/operator/
+permalink: /blog/cpp/basic/operator/
 usemathjax: true
 ---
 

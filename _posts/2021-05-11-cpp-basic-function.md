@@ -7,7 +7,7 @@ date: '2021-05-06 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, basic, for, while, function
-permalink: /blog/cpp/function/
+permalink: /blog/cpp/basic/function/
 usemathjax: true
 ---
 ## 반복문

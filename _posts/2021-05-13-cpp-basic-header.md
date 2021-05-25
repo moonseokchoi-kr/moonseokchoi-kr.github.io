@@ -7,7 +7,7 @@ date: '2021-05-06 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, basic, variable, memory
-permalink: /blog/cpp/memory/
+permalink: /blog/cpp/basic/memory/
 usemathjax: true
 ---
 
