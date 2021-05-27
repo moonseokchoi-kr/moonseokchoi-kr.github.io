@@ -7,11 +7,11 @@ date: '2021-05-23 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, basic, for, while, function
-permalink: /blog/cpp/pointer/
+permalink: /blog/cpp/basic/pointer
 usemathjax: true
 ---
 
-### 포인터
+## 포인터
 
 ---
 
@@ -176,13 +176,23 @@ usemathjax: true
         	float f;
         } MYST;//=>리넴임(이것으로 호출한다);
 
+        //c에서 사용
+        //typedef가 없을경우 
+        struct _tagMyST a;
+
+        //typedef가 있을경우
+        MYST b;
+
         //구조체 선언 (C++)
 
-        struct _tageMyST
+        struct _tagMyST
         {
         	int a;
         	float f;	
         };
+
+        //c++ typedef없어도 그냥 선언한 이름으로 호출하면된다
+        _tagMyST c;
         ```
 
     - 구조체에서 typedef 키워드는 타입재정의를 의미한다.(기본 타입들에 대한 재정의도 가능)
@@ -193,7 +203,7 @@ usemathjax: true
     ```cpp
     struct _tageMyST
     {
-    	int a;
+    	int a;//구조체내에 있는 변수들을 멤버라 부른다.
     	float f;	
     };
 
@@ -208,3 +218,21 @@ usemathjax: true
 
     // 원래 함수를 추가하거나 생성자를 추가하는등의 과정도 가능하지만 그건 나중에 할 예정
     ```
+
+- 구조체와 포인터
+    - 구조체도 사용자가 정의한 자료형이기때문에 포인터를 가질수 있다.
+
+        ```cpp
+        MYST s = {};
+
+        MYST* pST = &s;
+
+        (*pST).a= 100;
+        (*pST).f= 3.14;
+        //위에랑 같은의미
+        pST->a = 100;
+        pST->f = 3.14f;
+        ```
+
+        - 구조체도 memroy-safety를 보장하지 않기때문에 잘못된 접근을 그대로 허용해버린다.
+            - ex) 구조체 내부에 char멤버가 있는데 그자리에 float값을 넣으면 4바이트를계산해서  값을 대입해버려 이상한곳에 값이 들어감
