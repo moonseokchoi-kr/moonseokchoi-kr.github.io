@@ -3,7 +3,7 @@ layout: post
 title:  "[C++] 동적할당"
 summary: "동적할당"
 author: moon
-date: '2021-05-26 12:35:23 +0900'
+date: '2021-05-27 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, basic, pointer, allocate, malloc
@@ -49,7 +49,7 @@ usemathjax: true
 
             malloc은 동적할당된 메모리공간의 주소값만 반환하면 된다. 그렇기 때문에 주소값을 통해 무언가를 접근하는걸 malloc이 할필요가 없기때문에 모든 주소값은 저장할 수 있는 void*로 반환한다.
 
-## 가변배열
+## 가변배열(ArrayList)
 
 ---
 
@@ -62,6 +62,102 @@ usemathjax: true
         모든 메모리의 크기를 파악하고 있기 때문이다. 그렇기 때문에 배열을 가변적으로 선언하게되면 배열의 크기를 파악할 수 없기때문에제한이 된다.
     - 구조체에서 배열이 가변선언 될수 없는 이유
         - 구조체도 자료형이기때문에 메모리의 크기가 고정적으로 되어야 컴파일러에서 이를 파악하고 관리할 수 있다.
+- 가변배열의 선언
+
+    ```cpp
+    //Arr.h
+    typedef struct _tagArr
+    {
+    		int* pInt;//주소값저장
+    		int iCount;//현재갯수
+    		int iMaxCount//최대갯수
+    		_tagArr()
+    		{
+    			pInt = (int*)malloc(sizof(int)*2);
+    			iCount = 0;
+    			iMaxCount=2;
+    		}
+    		~_tagArr()
+    		{
+    				free(pInt);
+    				iCount =0;
+    				iMaxCount=0;
+    		}
+    		//재할당
+    		private void ReAllocate()
+    		{
+    				int* pTmp = (int*)malloc(2*imaxCount*sizeof(int));
+    				for(int i=0; i<iCount; ++i)
+    				{
+    					pTmp[i] = pInt[i];
+    				}
+    				free(pInt)
+    				pInt = pNew;
+    				iMaxCount *=2;
+    		}
+    		//[]오버라이딩
+    		//추가
+    		void add(int _data)
+    		{
+    				if(iCount == iMaxCount)
+    					ReAllocate();
+    				pInt[iCount++]=_data;
+    		}
+    }tArr;
+    ```
+
+- 동적할당시 주의할점
+    - 무조건 필요한 만큼만 메모리를 할당할것
+    - 만약 메모리를 잘못 선언할경우 생길수 있는 일
+        - 힙손상문제 (Heap Corruption)
+        - 다른 객체가 사용하는 메모리 침범으로 인한 crash
+        - 가장 문제점은 c++은 사용자의 자유를 위해 메모리 세이프티를 보장하지 않기때문에 이러한 문제에 대한 catch를 해주지 않아 발견이 힘듬
+
+## Linked List(연결형 리스트)
+
+---
+
+[Data Structure & Algorithm](https://www.notion.so/Data-Structure-Algorithm-a798bffa34bb494b9376c02e74a2ad8b)
+
+- 자료구조는 위 링크에 들어가서 확인할것
+
+```cpp
+//Node
+typedef struct _tagNode
+{
+	int value;
+	struct _tagNode* pNextNode;
+}tNode;
+
+//List
+typedef struct _tagList
+{
+	tNode* pHeadNode;
+	int iCount;
+}tLinkedList;
+
+//리스트초기화
+void InitList(tLiknedList* _pList);
+
+//리스트 데이터삽입
+void PushBack(tLinkedList* _pList, int _data);
+{
+	//노드를 위한 동적할당
+	
+	//리스트가 비었는지 체크
+		//비어있으면 첫노드로 링크
+
+	//아니면 리스트의 마지막 노드를 찾아 연결	
+}
+
+void RealseList(tLinkedList* _pList);
+{
+	//지우기전에 다음노드를 저장해놓고 지우기
+}
+
+//과제 
+void PushFront(tLinkedList* _pList, int _pData){}
+```
 
 ## 객체
 
@@ -71,3 +167,5 @@ usemathjax: true
     - 데이터타입을 가지고 만들어진 주체
     - int a에서 a가 객체에 해당
     - 붕어빵이 객체 붕어빵을 만드는 틀이 자료형이라생각하면 편함
+
+---
