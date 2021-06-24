@@ -7,7 +7,7 @@ date: '2021-06-17 12:35:23 +0900'
 category: cpp
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, oop,abstract, inherit, capsulize
-permalink: /blog/data-structure/graph
+permalink: /blog/cpp/oop/basic
 usemathjax: true
 ---
 ## Object-Oriented-Programming
