@@ -3,11 +3,11 @@ layout: post
 title:  "[C++][WinAPI] Create Game Engine -3 Key Manager, Double Buffering"
 summary: "winapi game engine"
 author: moon
-date: '2021-07-20 12:35:23 +0900'
+date: '2021-06-25 12:35:23 +0900'
 category: WinAPI
 thumbnail: /assets/img/posts/bitoper.PNG
 keywords: cpp, oop, winapi, ui, grapic,engine
-permalink: /blog/cpp/winapi/engine/2
+permalink: /blog/cpp/winapi/engine/keymanager
 usemathjax: true
 ---
 ## 렌더링 개선하기
