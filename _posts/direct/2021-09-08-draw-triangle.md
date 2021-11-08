@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C++][Direct2D] Create Game Engine -4 Graphics Pipeline"
+title:  "[C++][Direct2D] Create Game Engine -3 Graphics Pipeline"
 summary: "Direct2D game engine"
 author: moon
 date: '2021-09-08 12:35:23 +0900'

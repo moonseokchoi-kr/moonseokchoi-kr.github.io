@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C++][Direct2D] Create Game Engine -2 Game Engine Structure"
+title:  "[C++][Direct2D] Create Game Engine -1 Game Engine Structure"
 summary: "Direct2D game engine"
 author: moon
 date: '2021-09-06 12:35:23 +0900'
